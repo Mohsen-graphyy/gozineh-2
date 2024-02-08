@@ -37,12 +37,41 @@
           </div>
         </div>
       </div>
-      <button
-        class="flex items-center justify-center w-full rounded-md bg-orange-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 transition duration-200"
-      >
-        <BaseIcon class="w-6 h-6 ml-2" icon-path="Checkout" />
-        افزودن به سبد خرید
-      </button>
+      <div class="flex justify-between items-center">
+        <button
+          v-if="product.checkoutMount === 0"
+          class="flex items-center justify-center w-full rounded-md bg-orange-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 transition duration-200"
+        >
+          <BaseIcon class="w-6 h-6 ml-2" icon-path="Checkout" />
+          افزودن به سبد خرید
+        </button>
+        <div v-else class="flex items-center justify-between w-full gap-4">
+          <button
+            class="bg-green-100 hover:bg-green-200 w-full flex justify-center p-3 rounded-md transition duration-200"
+          >
+            <BaseIcon class="w-5 h-5 text-green-400" icon-path="Plus" />
+          </button>
+          <p class="p-2 border border-solid border-orange-300 rounded-md">
+            {{ product.checkoutMount }}
+          </p>
+          <button
+            class="bg-red-100 hover:bg-red-200 w-full flex justify-center p-3 rounded-md transition duration-200"
+          >
+            <BaseIcon class="w-5 h-5 text-red-400" icon-path="Minus" />
+          </button>
+          <BaseTooltip placement="top-right">
+            <template v-slot:content>
+              <BaseIcon
+                class="w-5 h-5 text-red-400 hover:scale-110 transition duration-200"
+                icon-path="Trash"
+              />
+            </template>
+            <template v-slot:body>
+              <p class="bg-gray-200 p-2 rounded-md">حذف محصول از سبد خرید</p>
+            </template>
+          </BaseTooltip>
+        </div>
+      </div>
     </div>
   </div>
 </template>
