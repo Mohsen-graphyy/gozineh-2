@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 body {
-  font-family: vazir;
+  font-family:
+    Samim FD,
+    sans-serif;
   direction: rtl;
 }
