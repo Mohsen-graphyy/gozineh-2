@@ -20,7 +20,7 @@ const products = ref([
     price: 229500,
     oldPrice: 270000,
     image: 'images/products/book1.webp',
-    rate: 4.5
+    rate: 4
   },
   {
     id: 2,
@@ -38,7 +38,7 @@ const products = ref([
     price: 238000,
     oldPrice: 280000,
     image: 'images/products/book3.webp',
-    rate: 4.5
+    rate: 4
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ const products = ref([
     price: 221000,
     oldPrice: 260000,
     image: 'images/products/book4.webp',
-    rate: 4.5
+    rate: 2
   },
   {
     id: 5,
@@ -56,7 +56,7 @@ const products = ref([
     price: 153000,
     oldPrice: 153000,
     image: 'images/products/book5.webp',
-    rate: 4.5
+    rate: 5
   },
   {
     id: 6,
@@ -65,7 +65,7 @@ const products = ref([
     price: 174250,
     oldPrice: 205000,
     image: 'images/products/book6.webp',
-    rate: 4.5
+    rate: 4
   },
   {
     id: 7,
@@ -74,7 +74,7 @@ const products = ref([
     price: 486000,
     oldPrice: 540000,
     image: 'images/products/book7.webp',
-    rate: 4.5
+    rate: 5
   },
   {
     id: 8,
@@ -83,7 +83,7 @@ const products = ref([
     price: 229500,
     oldPrice: 270000,
     image: 'images/products/book8.webp',
-    rate: 4.5
+    rate: 1
   },
   {
     id: 9,
@@ -92,7 +92,7 @@ const products = ref([
     price: 15300,
     oldPrice: 15300,
     image: 'images/products/book9.webp',
-    rate: 4.5
+    rate: 3
   }
 ])
 </script>
