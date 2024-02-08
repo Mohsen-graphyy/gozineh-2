@@ -1,7 +1,6 @@
 <template>
   <div
-    class="relative h-56 rounded-b-lg bg-cover bg-center bg-no-repeat shadow-lg"
-    style="background-image: url(/images/background.jpg)"
+    class="product-container-image relative h-56 rounded-b-lg bg-cover bg-center bg-no-repeat shadow-lg"
   >
     <div class="px-4 pt-8 pb-10">
       <div
@@ -16,3 +15,8 @@
     </div>
   </div>
 </template>
+<style scoped>
+.product-container-image {
+  background-image: url('/images/background.jpg');
+}
+</style>
