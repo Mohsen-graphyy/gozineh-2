@@ -11,10 +11,6 @@
 </template>
 
 <script setup>
-import ProductContainerHeader from '@/components/product/ProductContainerHeader.vue'
-import ProductDetails from '@/components/product/ProductDetails.vue'
-import ProductCard from '@/components/product/ProductCard.vue'
-
 import { ref } from 'vue'
 const products = ref([
   {
@@ -24,7 +20,7 @@ const products = ref([
     price: 229500,
     oldPrice: 270000,
     image: 'images/products/book1.webp',
-    ranking: 4.5
+    rate: 4.5
   },
   {
     id: 2,
@@ -33,7 +29,7 @@ const products = ref([
     price: 187000,
     oldPrice: 220000,
     image: 'images/products/book2.webp',
-    ranking: 3
+    rate: 3
   },
   {
     id: 3,
@@ -42,7 +38,7 @@ const products = ref([
     price: 238000,
     oldPrice: 280000,
     image: 'images/products/book3.webp',
-    ranking: 4.5
+    rate: 4.5
   },
   {
     id: 4,
@@ -51,7 +47,7 @@ const products = ref([
     price: 221000,
     oldPrice: 260000,
     image: 'images/products/book4.webp',
-    ranking: 4.5
+    rate: 4.5
   },
   {
     id: 5,
@@ -60,7 +56,7 @@ const products = ref([
     price: 153000,
     oldPrice: 153000,
     image: 'images/products/book5.webp',
-    ranking: 4.5
+    rate: 4.5
   },
   {
     id: 6,
@@ -69,7 +65,7 @@ const products = ref([
     price: 174250,
     oldPrice: 205000,
     image: 'images/products/book6.webp',
-    ranking: 4.5
+    rate: 4.5
   },
   {
     id: 7,
@@ -78,7 +74,7 @@ const products = ref([
     price: 486000,
     oldPrice: 540000,
     image: 'images/products/book7.webp',
-    ranking: 4.5
+    rate: 4.5
   },
   {
     id: 8,
@@ -87,7 +83,7 @@ const products = ref([
     price: 229500,
     oldPrice: 270000,
     image: 'images/products/book8.webp',
-    ranking: 4.5
+    rate: 4.5
   },
   {
     id: 9,
@@ -96,7 +92,7 @@ const products = ref([
     price: 15300,
     oldPrice: 15300,
     image: 'images/products/book9.webp',
-    ranking: 4.5
+    rate: 4.5
   }
 ])
 </script>
