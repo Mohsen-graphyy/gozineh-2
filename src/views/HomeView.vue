@@ -1,20 +1,6 @@
 <template>
   <div class="mx-auto max-w-screen-lg">
-    <div
-      class="relative h-56 rounded-b-lg bg-cover bg-center bg-no-repeat shadow-lg"
-      style="background-image: url(/images/background.jpg)"
-    >
-      <div class="px-4 pt-8 pb-10">
-        <div
-          class="absolute inset-x-0 -bottom-10 mx-auto w-36 rounded-full border-8 border-white shadow-lg"
-        >
-          <span
-            class="absolute right-0 m-3 h-3 w-3 rounded-full bg-green-500 ring-2 ring-green-300 ring-offset-2"
-          ></span>
-          <img class="mx-auto h-auto w-full rounded-full" src="/images/pic.avif" alt="" />
-        </div>
-      </div>
-    </div>
+    <ProductContainerHeader />
     <div
       class="mt-10 flex flex-col items-start justify-center space-y-4 py-8 px-4 sm:flex-row sm:space-y-0 md:justify-between lg:px-0"
     >
@@ -742,4 +728,6 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import ProductContainerHeader from '@/components/product/ProductContainerHeader.vue'
+</script>
