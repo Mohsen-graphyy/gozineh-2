@@ -8,8 +8,8 @@
         class="absolute inset-x-0 -bottom-10 mx-auto h-28 w-28 rounded-full border-4 border-white shadow-lg"
       >
         <img
-          class="mx-auto h-full w-full rounded-full object-cover"
-          src="/images/brand.jpg"
+          class="mx-auto h-full w-full rounded-full bg-white"
+          src="/images/gozine2.png"
           alt="company"
         />
       </div>
