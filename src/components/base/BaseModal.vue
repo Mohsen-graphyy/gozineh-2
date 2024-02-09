@@ -2,7 +2,7 @@
   <div class="base-modal flex justify-center items-center fixed right-0 left-0 px-5">
     <div class="fixed inset-0 bg-gray-900 bg-opacity-50 z-50" @click="closeOutsideModal"></div>
     <div
-      class="base-modal__box relative flex flex-col bg-white shadow-xl rounded-lg w-full p-6 mx-5 overflow-y-auto"
+      class="base-modal__box relative flex flex-col bg-white shadow-xl rounded-lg w-full p-6 mx-0 md:mx-5 overflow-y-auto"
       :class="boxClasses"
     >
       <div
@@ -56,7 +56,7 @@ function closeOutsideModal() {
 </script>
 <style scoped>
 .base-modal {
-  top: 18%;
+  top: 10%;
   z-index: 99999;
 }
 .base-modal__box {

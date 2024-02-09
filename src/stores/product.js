@@ -1,8 +1,8 @@
-import { computed, ref } from 'vue'
+import { computed, reactive } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useProductStore = defineStore('product', () => {
-  const products = ref([
+  const products = reactive([
     {
       id: 0,
       title: 'کتاب فارسی دوازدهم سری فرمول بیست',
@@ -95,27 +95,25 @@ export const useProductStore = defineStore('product', () => {
     }
   ])
   const checkoutSum = computed(() => {
-    let sum = 0
-    products.value.map((product) => (sum += product.price * product.checkoutMount))
-    return sum
+    return products.reduce((sum, product) => sum + product.price * product.checkoutMount, 0)
   })
   const checkoutProducts = computed(() => {
-    return products.value.filter((product) => product.checkoutMount > 0)
+    return products.filter((product) => product.checkoutMount > 0)
   })
   function changeCheckoutMount(selectedProduct, changeMode) {
     const product = findProduct(selectedProduct)
     if (product) {
-      products.value[product.id].checkoutMount += 1 * changeMode
+      products[product.id].checkoutMount += 1 * changeMode
     }
   }
   function makeEmptyCheckout(selectedProduct) {
     const product = findProduct(selectedProduct)
     if (product) {
-      products.value[product.id].checkoutMount = 0
+      products[product.id].checkoutMount = 0
     }
   }
   function findProduct(selectedProduct) {
-    return products.value.find((product) => product.id === selectedProduct.id)
+    return products.find((product) => product.id === selectedProduct.id)
   }
 
   return { products, checkoutSum, checkoutProducts, changeCheckoutMount, makeEmptyCheckout }
