@@ -99,6 +99,9 @@ export const useProductStore = defineStore('product', () => {
     products.value.map((product) => (sum += product.price * product.checkoutMount))
     return sum
   })
+  const checkoutProducts = computed(() => {
+    return products.value.filter((product) => product.checkoutMount > 0)
+  })
   function changeCheckoutMount(selectedProduct, changeMode) {
     const product = findProduct(selectedProduct)
     if (product) {
@@ -115,5 +118,5 @@ export const useProductStore = defineStore('product', () => {
     return products.value.find((product) => product.id === selectedProduct.id)
   }
 
-  return { products, checkoutSum, changeCheckoutMount, makeEmptyCheckout }
+  return { products, checkoutSum, checkoutProducts, changeCheckoutMount, makeEmptyCheckout }
 })
