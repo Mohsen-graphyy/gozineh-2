@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative flex w-full flex-col rounded-lg cursor-pointer border border-gray-100 bg-white shadow-md"
+    class="relative flex w-full flex-col hover:drop-shadow-xl transition duration-200 rounded-lg cursor-pointer border border-gray-100 bg-white shadow-md"
   >
     <div class="relative mx-3 mt-3 flex h-60 rounded-xl">
       <div class="flex justify-center items-center w-full">
@@ -41,6 +41,7 @@
         <button
           v-if="product.checkoutMount === 0"
           class="flex items-center justify-center w-full rounded-md bg-orange-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 transition duration-200"
+          @click="store.changeCheckoutMount(product, 1)"
         >
           <BaseIcon class="w-6 h-6 ml-2" icon-path="Checkout" />
           افزودن به سبد خرید
@@ -51,6 +52,8 @@
   </div>
 </template>
 <script setup>
+import { useProductStore } from '@/stores/product'
+const store = useProductStore()
 defineProps({
   product: {
     type: Object,

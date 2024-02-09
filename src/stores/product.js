@@ -1,10 +1,10 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useProductStore = defineStore('product', () => {
   const products = ref([
     {
-      id: 1,
+      id: 0,
       title: 'کتاب فارسی دوازدهم سری فرمول بیست',
       discountPercentage: 15,
       price: 229500,
@@ -14,7 +14,7 @@ export const useProductStore = defineStore('product', () => {
       checkoutMount: 1
     },
     {
-      id: 2,
+      id: 1,
       title: 'کتاب عربی دوازدهم سری فرمول بیست',
       discountPercentage: 15,
       price: 187000,
@@ -24,7 +24,7 @@ export const useProductStore = defineStore('product', () => {
       checkoutMount: 0
     },
     {
-      id: 3,
+      id: 2,
       title: 'کتاب زبان انگلیسی دوازدهم سری فرمول بیست',
       discountPercentage: 15,
       price: 238000,
@@ -34,7 +34,7 @@ export const useProductStore = defineStore('product', () => {
       checkoutMount: 0
     },
     {
-      id: 4,
+      id: 3,
       title: 'کتاب هندسه دوازدهم سری فرمول نوزده',
       discountPercentage: 15,
       price: 221000,
@@ -44,7 +44,7 @@ export const useProductStore = defineStore('product', () => {
       checkoutMount: 0
     },
     {
-      id: 5,
+      id: 4,
       title: 'کتاب شیمی دوازدهم سری فرمول بیست',
       discountPercentage: 0,
       price: 153000,
@@ -54,7 +54,7 @@ export const useProductStore = defineStore('product', () => {
       checkoutMount: 0
     },
     {
-      id: 6,
+      id: 5,
       title: 'کتاب سلامت و بهداشت دوازدهم سری فرمول بیست',
       discountPercentage: 15,
       price: 174250,
@@ -64,7 +64,7 @@ export const useProductStore = defineStore('product', () => {
       checkoutMount: 0
     },
     {
-      id: 7,
+      id: 6,
       title: 'کتاب هویت اجتماعی دوازدهم سری فرمول بیست',
       discountPercentage: 10,
       price: 486000,
@@ -74,7 +74,7 @@ export const useProductStore = defineStore('product', () => {
       checkoutMount: 0
     },
     {
-      id: 8,
+      id: 7,
       title: 'کتاب فیزیک دوازدهم سری فرمول بیست',
       discountPercentage: 15,
       price: 229500,
@@ -84,7 +84,7 @@ export const useProductStore = defineStore('product', () => {
       checkoutMount: 0
     },
     {
-      id: 9,
+      id: 8,
       title: 'کتاب ریاضیات گسسته دوازدهم سری فرمول بیست',
       discountPercentage: 0,
       price: 15300,
@@ -94,10 +94,21 @@ export const useProductStore = defineStore('product', () => {
       checkoutMount: 0
     }
   ])
-  const doubleCount = computed(() => products.value * 2)
-  function increment() {
-    products.value++
+  function changeCheckoutMount(selectedProduct, changeMode) {
+    const product = findProduct(selectedProduct)
+    if (product) {
+      products.value[product.id].checkoutMount += 1 * changeMode
+    }
+  }
+  function makeEmptyCheckout(selectedProduct) {
+    const product = findProduct(selectedProduct)
+    if (product) {
+      products.value[product.id].checkoutMount = 0
+    }
+  }
+  function findProduct(selectedProduct) {
+    return products.value.find((product) => product.id === selectedProduct.id)
   }
 
-  return { products, doubleCount, increment }
+  return { products, changeCheckoutMount, makeEmptyCheckout }
 })
