@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useProductStore = defineStore('product', () => {
@@ -11,7 +11,7 @@ export const useProductStore = defineStore('product', () => {
       oldPrice: 270000,
       image: 'images/products/book1.webp',
       rate: 4,
-      checkoutMount: 1
+      checkoutMount: 0
     },
     {
       id: 1,
@@ -94,6 +94,11 @@ export const useProductStore = defineStore('product', () => {
       checkoutMount: 0
     }
   ])
+  const checkoutSum = computed(() => {
+    let sum = 0
+    products.value.map((product) => (sum += product.price * product.checkoutMount))
+    return sum
+  })
   function changeCheckoutMount(selectedProduct, changeMode) {
     const product = findProduct(selectedProduct)
     if (product) {
@@ -110,5 +115,5 @@ export const useProductStore = defineStore('product', () => {
     return products.value.find((product) => product.id === selectedProduct.id)
   }
 
-  return { products, changeCheckoutMount, makeEmptyCheckout }
+  return { products, checkoutSum, changeCheckoutMount, makeEmptyCheckout }
 })
